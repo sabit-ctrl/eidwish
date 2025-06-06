@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eid Mubarak</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(#0f2027, #203a43, #2c5364);
+      color: white;
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 40px;
+      color: #FFD700;
+    }
+
+    .wishes {
+      margin: 20px auto;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .wishes p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: #FFD700;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ffc107;
+      transform: scale(1.1);
+    }
+
+    /* Firework styles */
+    .firework {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      width: 8px;
+      height: 8px;
+      background-color: gold;
+      animation: explode 1s ease-out forwards;
+      z-index: 9999;
+    }
+
+    @keyframes explode {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(5);
+      }
+    }
+
+    /* Garland Effect */
+    .garland {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 1;
+    }
+
+    .bulb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: red;
+      animation: blink 1s infinite;
+    }
+
+    .bulb:nth-child(2n) { background-color: green; animation-delay: 0.5s; }
+    .bulb:nth-child(3n) { background-color: yellow; animation-delay: 0.2s; }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌙 ঈদ মোবারক!</h1>
+
+  <div class="wishes">
+    <p>🌸 আপনার জীবন হোক ঈদের মতো সুন্দর!</p>
+    <p>💖 পরিবারে ও বন্ধুর মাঝে ছড়িয়ে দিন ভালোবাসা।</p>
+    <p>🌟 আল্লাহ্‌ আপনাকে সুখ, শান্তি ও সমৃদ্ধি দান করুন।</p>
+    <p>🎁 ঈদের আনন্দ ভাগ করে নিন সবার সাথে!</p>
+  </div>
+
+  <button onclick="celebrate()">Click here to Celebrate!</button>
+
+  <div class="garland" id="garland">
+<!-- Bulbs will show here -->
+    <div class="bulb"></div>
+    <div class="bulb"></div>
+    <div class="bulb"></div>
+    <div class="bulb"></div>
+    <div class="bulb"></div>
+  </div>
+
+  <script>
+    function celebrate() {
+      for (let i = 0; i < 50; i++) {
+        const firework = document.createElement('div');
+        firework.className = 'firework';
+        firework.style.top = Math.random() * window.innerHeight + 'px';
+        firework.style.left = Math.random() * window.innerWidth + 'px';
+        document.body.appendChild(firework);
+        setTimeout(() => firework.remove(), 1000);
+      }
+    }
+  </script>
+
+</body>
+</html>
